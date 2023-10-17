@@ -1,0 +1,8 @@
+ImageHash==4.3.1
+mediapipe==0.10.7
+numpy==1.26.1
+opencv_contrib_python==4.8.1.78
+Pillow==10.0.1
+Pillow==10.1.0
+pygame==2.5.2
+pyglet==2.0.9
