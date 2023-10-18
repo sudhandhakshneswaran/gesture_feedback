@@ -1,0 +1,5 @@
+# exclude everything
+feedback/*
+
+# exception to the rule
+!feedback/.gitkeep 

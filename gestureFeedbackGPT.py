@@ -77,9 +77,9 @@ class GestureRecognizer:
         y_pos = 50
         for hand_gesture_name in gestures:
             # show the prediction on the frame
-            # cv2.putText(frame, hand_gesture_name, (10, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
-            #                     1, (0,0,255), 2, cv2.LINE_AA)
-            # y_pos += 50
+            cv2.putText(frame, hand_gesture_name, (10, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
+                                1, (0,0,255), 2, cv2.LINE_AA)
+            y_pos += 50
             if(hand_gesture_name == "Thumb_Up"):
                 self.save_my_img(count, frame)
                 #self.play_gif()

@@ -4,9 +4,6 @@ import os
 from pygame.locals import *
 import pyglet
 
-
- 
-
 # Initialize Pygame
 class Output:
     previous_file_count=0
