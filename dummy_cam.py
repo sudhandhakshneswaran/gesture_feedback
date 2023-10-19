@@ -10,9 +10,10 @@ class Output:
     win = None
 
     def main():
-        screen_width, screen_height = 800, 600
+        info = pygame.display.Info() # You have to call this before pygame.display.set_mode()
+        screen_width,screen_height = info.current_w,info.current_h
         screen = pygame.display.set_mode((screen_width, screen_height))
-        pygame.display.set_caption("Camera and File Count")
+        pygame.display.set_caption("TW Feedback")
 
         # Initialize the camera
         camera = cv2.VideoCapture(0)  # 0 represents the default camera
@@ -43,6 +44,7 @@ class Output:
             screen.fill((0, 0, 0))
 
             # Display the camera frame
+            frame = pygame.transform.scale(frame, (screen_width, screen_height))
             screen.blit(frame, (0, 0))
 
             # Count the files in the "feedback" folder
@@ -52,10 +54,10 @@ class Output:
                 file_count = len(files)
                 if (file_count > Output.previous_file_count):
                     Output.previous_file_count = file_count
-                    Output.play_gif()
-                file_text = f"Total files in '{folder_path}': {file_count}"
+                   # Output.play_gif()
+                file_text = f"Total Thumbs Up: {file_count}"
             else:
-                file_text = f"Folder '{folder_path}' not found"
+                file_text = f"Waiting for the Feedback"
 
             # Render and display the file count text in red with a bold style
             file_text_surface = font.render(file_text, True, (255, 0, 0))  # Red text
@@ -68,7 +70,7 @@ class Output:
 
     def play_gif():
         if Output.win is None:
-            ag_file = "success.gif"
+            ag_file = "success_big.gif"
             animation = pyglet.resource.animation(ag_file)
             sprite = pyglet.sprite.Sprite(animation)
 
@@ -96,5 +98,6 @@ class Output:
             Output.win = None
 
 if __name__ == "__main__":
+    os.environ['SDL_VIDEO_CENTERED'] = '1'
     pygame.init()
     Output.main()

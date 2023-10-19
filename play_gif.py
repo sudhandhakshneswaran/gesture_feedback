@@ -24,4 +24,8 @@ def on_draw():
     win.clear()
     sprite.draw()
 
+def close_pyglet(self, dt):
+    pyglet.app.exit()
+
+pyglet.clock.schedule_once(close_pyglet, 5)
 pyglet.app.run()

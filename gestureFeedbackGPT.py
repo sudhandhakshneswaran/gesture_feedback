@@ -83,6 +83,7 @@ class GestureRecognizer:
             if(hand_gesture_name == "Thumb_Up"):
                 self.save_my_img(count, frame)
                 #self.play_gif()
+                os.system("python3 play_gif.py")
                 self.likes = len(os.listdir(self.folder_path))
                 time.sleep(7)
         self.lock.release()
